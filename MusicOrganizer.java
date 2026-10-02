@@ -42,9 +42,10 @@ public class MusicOrganizer
      * List a file from the collection.
      * @param index The index of the file to be listed.
      */
+    //This is question 3 1/2
     public void listFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)) {
             String filename = files.get(index);
             System.out.println(filename);
         }
@@ -54,10 +55,47 @@ public class MusicOrganizer
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
      */
+    //This is question 3 2/2
     public void removeFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)) {
             files.remove(index);
+        }
+    }
+    
+    //This is question 1
+    public void checkIndex(int index) {
+        if (index >= 0 && index < files.size()) {
+            System.out.println("It's valid");
+        }
+        else {
+            System.out.println("Error: invalid number. Enter index beween 0 and " + (files.size() - 1));
+        }
+    }
+    
+    //This is question 2
+    public boolean validIndex (int index) {
+        if (index >= 0 && index <files.size()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    //This is question 5 (You would need a loop)
+    //This is question 6
+    public void listAllFiles() {        
+        //This is question 4
+        for(String filename : files) {
+            System.out.println(filename);
+        }
+    }
+    
+    public void listWithIndex() {
+        int position = 0;
+        for(String filename : files) {
+            System.out.println(position + ": " + filename);
+            position++;
         }
     }
 }
