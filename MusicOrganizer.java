@@ -18,6 +18,9 @@ public class MusicOrganizer
     public MusicOrganizer()
     {
         files = new ArrayList<>();
+        files.add("lover");
+        files.add("glove");
+        files.add("lovely");
     }
     
     /**
@@ -97,5 +100,19 @@ public class MusicOrganizer
             System.out.println(position + ": " + filename);
             position++;
         }
+    }
+    
+    public void listMatching(String searchString) {    
+        boolean found = false;
+        for(String filename : files) {
+            if(filename.contains(searchString)) {
+                System.out.println(filename);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Not found");
+        }
+        //This is question 9 ^^
     }
 }
